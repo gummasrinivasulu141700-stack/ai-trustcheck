@@ -1,0 +1,180 @@
+export interface ProjectSection {
+  title: string;
+  subtitle: string;
+  icon: string;
+  points: {
+    heading: string;
+    description: string;
+    badge?: string;
+  }[];
+  collegeTakeaway: string;
+}
+
+export const COLLEGE_PROJECT_DOSSIER = {
+  projectTitle: "AI TrustCheck Portal",
+  tagline: "An Epistemic Verification and Automated Fact-Auditing Framework for Generative AI",
+  academicLevel: "Undergraduate / Postgraduate Final Year Project (Computer Science / AI & Data Science)",
+  authorRole: "Problem Analyst & Software Systems Engineer",
+
+  problemStatement: {
+    title: "1. Problem Statement & Real-World Crisis",
+    summary: "Generative Large Language Models (LLMs) synthesize prose with exceptional grammatical fluency and authoritative tone. However, this creates a dangerous cognitive vulnerability known as Automation Bias: human users instinctively trust well-written outputs without verifying empirical evidence or factual citations.",
+    coreIssues: [
+      {
+        title: "The Illusion of Authority (Sycophancy & Tone)",
+        desc: "LLMs are statistical sequence predictors trained on cross-entropy loss, not dedicated truth engines. They articulate completely invented facts (hallucinations) with identical linguistic confidence as verifiable truths.",
+        impact: "Users mistake eloquence for truthfulness."
+      },
+      {
+        title: "Phantom & Fabricated Citations",
+        desc: "When pressed for academic sources, models routinely fabricate non-existent authors, fictitious journal volumes, and plausible DOIs (Digital Object Identifiers), poisoning student assignments and academic research papers.",
+        impact: "Compromised academic integrity & student disciplinary actions."
+      },
+      {
+        title: "Epistemic Hazard in High-Stakes Domains",
+        desc: "In medicine, law, and software engineering, trusting an ungrounded AI response can cause irreversible damage: recommending dangerous unregulated supplements, misquoting legal statutes, or generating vulnerable code.",
+        impact: "Physical health risks, security vulnerabilities, legal malpractice."
+      },
+      {
+        title: "Cognitive Offloading & Verification Friction",
+        desc: "Manually cross-referencing every single assertion in a 500-word AI response takes 20 to 45 minutes of search engine digging. Due to verification fatigue, over 70% of students and professionals skip fact-checking entirely.",
+        impact: "Rapid propagation of synthetic misinformation at scale."
+      }
+    ],
+    formalStatement: "There is an absence of accessible, real-time verification tools that can ingest arbitrary AI-generated text, decompose it into verifiable atomic claims, cross-examine those claims against verified knowledge bases, and produce an interpretable Trust Metric for everyday end-users."
+  },
+
+  projectObjectives: {
+    title: "2. Project Objectives (SMART Criteria)",
+    objectives: [
+      {
+        id: "OBJ-1",
+        name: "Automated Atomic Claim Decomposition",
+        description: "Parse continuous AI paragraphs into discrete, testable empirical propositions, distinguishing factual claims from subjective commentary and opinions.",
+        tech: "NLP Regex Sentence Tokenizer + Semantic Proposition Classifier"
+      },
+      {
+        id: "OBJ-2",
+        name: "Epistemic Grounding & Hallucination Flagging",
+        description: "Evaluate each extracted assertion against ground-truth scientific, historical, and technical knowledge bases using Gemini 3.8 Flash structured verification.",
+        tech: "LLM-as-a-Judge + Domain Grounding Rules"
+      },
+      {
+        id: "OBJ-3",
+        name: "Composite Trust Index Algorithm (0-100 Score)",
+        description: "Formulate an interpretable mathematical score balancing Factual Accuracy (35%), Citation Integrity (20%), Confidence Calibration (15%), Logical Validity (15%), and Neutrality (15%).",
+        tech: "Multi-Criteria Weighted Epistemic Formula"
+      },
+      {
+        id: "OBJ-4",
+        name: "Interactive Visual Heatmap & Repair Engine",
+        description: "Highlight each sentence in color-coded trust levels (Verified True, Overconfident, Questionable, Hallucination) and provide side-by-side grounded corrections.",
+        tech: "Interactive React UI + Diff Visualization"
+      },
+      {
+        id: "OBJ-5",
+        name: "Standardized Academic Audit Certificate",
+        description: "Generate a tamper-evident, exportable Fact Audit Certificate with unique audit hash and grading rubric for collegiate assignments.",
+        tech: "Client-side Report Generator & Printable Certificate"
+      }
+    ]
+  },
+
+  targetUsers: {
+    title: "3. Target Users & Stakeholder Ecosystem",
+    personas: [
+      {
+        role: "College & University Students",
+        scenario: "Writing research papers, literature reviews, thesis introductions, or lab reports.",
+        painPoint: "Fear of submitting fake references or flawed arguments generated by ChatGPT.",
+        benefit: "Instantly checks whether cited studies exist and flags speculative claims before submission."
+      },
+      {
+        role: "Educators, Tutors & Evaluators",
+        scenario: "Grading student essays, lab submissions, and coding assignments.",
+        painPoint: "Tedious manual effort required to distinguish genuine student research from hallucinated AI text.",
+        benefit: "Rapid 10-second verification audit showing trust grade and flagged fabrications."
+      },
+      {
+        role: "Developers & Software Engineers",
+        scenario: "Using AI code assistants for auth, database queries, and crypto functions.",
+        painPoint: "Copilot suggesting deprecated APIs, vulnerable SQL concatenation, or bogus libraries.",
+        benefit: "Identifies logic flaws and security anti-patterns in AI code advice."
+      },
+      {
+        role: "Healthcare & Everyday Consumers",
+        scenario: "Searching for health remedies, nutrition guidance, and financial decisions.",
+        painPoint: "Believing dangerous holistic myths or fabricated statistics.",
+        benefit: "High-visibility red alert banners for pseudoscientific assertions lacking clinical backing."
+      }
+    ]
+  },
+
+  proposedSolution: {
+    title: "4. Proposed Solution & Architecture",
+    architectureSteps: [
+      {
+        step: "Phase 1: Ingestion & Normalization",
+        detail: "User inputs the raw AI response along with optional domain context (Academic, Medical, Coding, History) and prompt context."
+      },
+      {
+        step: "Phase 2: Claim Tokenization",
+        detail: "App decomposes the discourse into discrete atomic assertions, stripping conversational filler and conversational pleasantries."
+      },
+      {
+        step: "Phase 3: Deep Epistemic Cross-Examination",
+        detail: "The Express backend invokes Gemini 3.8 Flash with structured schema to cross-examine facts, check DOI validity, detect weasel words, and analyze confidence calibration."
+      },
+      {
+        step: "Phase 4: Weighted Trust Scoring",
+        detail: "Scores are computed dynamically using the TrustCheck Index formula, penalizing unhedged certainty on unproven assertions."
+      },
+      {
+        step: "Phase 5: Visual Presentation & Actionable Repair",
+        detail: "Outputs an interactive color-coded sentence inspector, red-flag alert cards, verified literature references, and an auto-corrected 'Repaired Answer'."
+      }
+    ],
+    formula: "TrustScore = (0.35 × FactualAccuracy) + (0.20 × CitationIntegrity) + (0.15 × ConfidenceCalibration) + (0.15 × ReasoningValidity) + (0.15 × Neutrality) - Penalties(CriticalHallucinations × 20)"
+  },
+
+  expectedBenefits: {
+    title: "5. Expected Benefits & Societal Impact",
+    benefits: [
+      {
+        title: "Cultivates AI Epistemic Hygiene",
+        desc: "Transforms passive AI consumers into critical evaluators by visibly exposing the gap between fluency and factual validity."
+      },
+      {
+        title: "Protects Academic Integrity",
+        desc: "Eliminates embarrassing phantom citations in dissertations and capstone projects."
+      },
+      {
+        title: "Saves 80% Verification Time",
+        desc: "Replaces 30 minutes of manual Google hunting with a 3-second structured audit report."
+      },
+      {
+        title: "Democratizes Fact-Checking Technology",
+        desc: "Brings institutional-grade truth verification into an open, easy-to-use college web interface."
+      }
+    ]
+  },
+
+  vivaDefenseGuide: [
+    {
+      question: "Q1: Why is checking AI truthfulness harder than traditional web fact-checking?",
+      answer: "Traditional web fact-checking deals with human text where claims are often tied to named URLs or authors. Generative AI produces 'synthetic truthiness'—statistically probable words strung together that sound 100% academic yet refer to entities that have never existed. AI TrustCheck decomposes sentences into atomic propositions and tests attribution."
+    },
+    {
+      question: "Q2: How does TrustCheck handle subjective opinions vs factual statements?",
+      answer: "The sentence classifier assigns an 'opinion' tag to subjective judgments (e.g. 'This is the most elegant framework') and gives it a neutral risk rating (0 penalty), while penalizing empirical assertions that lack grounding."
+    },
+    {
+      question: "Q3: What makes this project unique compared to standard plagiarism detectors?",
+      answer: "Plagiarism checkers only look for string matches against existing databases (checking if you copied). AI TrustCheck is an epistemic integrity tool: it verifies whether the generated statement is actually true, whether cited DOIs exist, and whether the certainty level is scientifically justified."
+    },
+    {
+      question: "Q4: What happens if the Gemini API key is unavailable?",
+      answer: "The platform implements a resilient Dual-Engine Architecture: if the live LLM is unreachable, the server gracefully activates the TrustCheck Rule-Based Heuristic Engine to detect phantom citations, extreme absolutes, and medical red flags without interrupting the user experience."
+    }
+  ]
+};

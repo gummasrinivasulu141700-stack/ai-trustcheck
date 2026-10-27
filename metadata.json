@@ -1,0 +1,6 @@
+{
+  "name": "AI TrustCheck Portal",
+  "description": "Analyze, audit, and verify AI-generated answers for factual claims, hallucinations, missing citations, and trust scores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
